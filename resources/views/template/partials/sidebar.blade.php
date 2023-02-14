@@ -34,23 +34,12 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               @if (auth()->user()->level == 'admin')
           <li class="nav-item">
-            <a href="/dashboard/masyarakat" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
               <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-
-          @if (auth()->user()->level == 'admin')
-          <li class="nav-item">
-            <a href="/admin/barang" class="nav-link">
-              <i class="nav-icon fas fa-cubes"></i>
-              <p>
-                Barang
-                <i class="fas fa-angle-left right"></i>
+                ADMIN
               </p>
             </a>
           </li>
@@ -58,11 +47,10 @@
 
           @if (auth()->user()->level == 'petugas')
           <li class="nav-item">
-            <a href="/petugas/lelang" class="nav-link">
-              <i class="nav-icon fas fa-tags"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
               <p>
-                Lelang
-                <i class="fas fa-angle-left right"></i>
+                PETUGAS
               </p>
             </a>
           </li>
@@ -70,11 +58,76 @@
 
           @if (auth()->user()->level == 'masyarakat')
           <li class="nav-item">
-            <a href="/masyarakat/lelang" class="nav-link">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                
+              </p>User
+            </a>
+          </li>
+          @endif
+
+          @if (auth()->user()->level == 'admin')
+          <li class="nav-item">
+            <a href="/barang" class="nav-link">
+              <i class="nav-icon fas fa-cubes"></i>
+              <p>
+                Barang
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/barang/create" class="nav-link">
+            <i class="nav-icon fa fa-plus-circle"></i>
+              <p>
+                Tambah Barang
+              </p>
+            </a>
+          </li>
+          @endif
+
+          @if (auth()->user()->level == 'petugas')
+          <li class="nav-item">
+            <a href="/barang" class="nav-link">
+              <i class="nav-icon fas fa-cubes"></i>
+              <p>
+                Barang
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/barang/create" class="nav-link">
+            <i class="nav-icon fa fa-plus-circle"></i>
+              <p>
+                Tambah Barang
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/lelang" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 Lelang
-                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a href="/lelang/create" class="nav-link">
+            <i class="nav-icon fa fa-plus-circle"></i>
+              <p>
+                Tambah Lelang
+              </p>
+            </a>
+          </li>
+          @endif
+
+          @if (auth()->user()->level == 'masyarakat')
+          <li class="nav-item">
+            <a href="/listlelang" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                List Lelang
               </p>
             </a>
           </li>
@@ -82,11 +135,10 @@
           
 
           <li class="nav-item">
-            <a href="{{route('logout-petugas')}}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+            <a href="{{route('logout-petugas')}}" class="nav-link text-red">
+              <i class="nav-icon fas fa-arrow-circle-left"></i>
               <p>
                   LOG OUT
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
 </li>

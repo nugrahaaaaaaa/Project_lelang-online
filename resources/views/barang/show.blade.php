@@ -1,20 +1,31 @@
+@extends('template.master')
+
+@section('content')
 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Masukan Profil anda</h3>
+                <h3 class="card-title">Detail Barang</h3>
               </div>
-            <form action="/profil" method="POST">
+            <form action="/barang" method="POST">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="telepon">telepon</label>
-                    <input type="text" name="telepon" class="form-control" id="exampleInputEmail1" placeholder="Masukan telepon" value="{{ $showprofil->telepon }}" disabled>
+                    <label for="">Nama Barang</label>
+                    <input type="text" name="nama_barang" class="form-control" id="exampleInputEmail1" value="{{ $showbarang->nama_barang }}" disabled>
                     <br>
                     <div class="form-group">
-                    <label for="alamat">alamat</label>
-                    <input type="text" name="alamat" class="form-control" id="exampleInputEmail1" placeholder="Masukan alamat" value="{{ $showprofil->alamat }}" disabled>
+                    <label for="tanggal">Tanggal</label>
+                    <input type="date" name="tanggal" class="form-control" id="exampleInputEmail1" value="{{ $showbarang->tanggal }}" disabled>
+                    <br>
+                    <div class="form-group">
+                    <label for="harga_awal">Harga Awal</label>
+                    <input type="number" name="harga_awal" class="form-control" id="exampleInputEmail1" value="{{ $showbarang->harga_awal }}" disabled>
+                    <br>
+                    <div class="form-group">
+                    <label for="deskripsi">Deskripsi</label>
+                    <input type="text" name="deskripsi" class="form-control" id="exampleInputEmail1"  value="{{ $showbarang->deskripsi }}" disabled>
                         <br>
                         <div class="card-footer">
-                    <a class="btn btn-primary" href="{{ route('profil.index')}}">
+                    <a class="btn btn-primary" href="{{ route('barang.index')}}">
                     <i class="fas fa-arrow-left"></i>  
                    Back
                 </a>
@@ -22,3 +33,4 @@
 </form>
 </body>
 </html>     
+@endsection

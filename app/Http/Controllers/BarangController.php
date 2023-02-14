@@ -66,7 +66,8 @@ class BarangController extends Controller
     public function show(barang $barang)
     {
         //
-        
+        $showbarang = barang::find($barang->id);
+        return view('barang.show', compact('showbarang'));
     }
 
     /**
@@ -78,6 +79,8 @@ class BarangController extends Controller
     public function edit(barang $barang)
     {
         //
+        $editbarang = barang::all();
+        return view('barang.edit', compact('editbarang'));
     }
 
     /**
@@ -90,6 +93,23 @@ class BarangController extends Controller
     public function update(Request $request, barang $barang)
     {
         //
+        $request->validate([
+            'nama_barang' => 'required',
+            'tanggal' => 'required',
+            'harga_awal' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+         $query = DB::table('barang')
+        ->where('id',$barangs->id)
+        ->update([
+            "nama_barang" => $request["nama_barang"],
+            "tanggal"  => $request["tanggal"],
+            "harga_awal"  => $request["harga_awal"],
+            "deskripsi"  => $request["deskripsi"],
+        ]);
+        return redirect ('/barang');
+
     }
 
     /**
@@ -101,7 +121,7 @@ class BarangController extends Controller
     public function destroy(barang $barang)
     {
         //
-        $query = DB::table('barangs')->where('id',$barangs->id)->delete();
+        $query = DB::table('barangs')->where('id',$barang->id)->delete();
         return redirect('/barang');
     }
 }

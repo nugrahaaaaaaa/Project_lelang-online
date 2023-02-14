@@ -17,12 +17,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ asset ('adminLTE/index2.html') }}"><b>Admin</b>LTE</a>
+    <a href="{{ asset ('adminLTE/index2.html') }}"><b>Login</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Masuk untuk melakukan lelang</p>
 
       <form action="" method="post">
         @csrf
@@ -55,7 +55,7 @@
           <!-- /.col -->
         </div>
         <p class="mb-0">
-        <a href="/register" class="text-center">Register</a>
+        <a href="/register" class="text-center">Buat akun baru</a>
       </p>
       </form>
 

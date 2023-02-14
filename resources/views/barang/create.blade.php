@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">membuat data baru</h3>
+    <div class="card-header bg-primary text-white">
+        <h3 class="card-title">Membuat Data Baru</h3>
     </div>
     <form action="/barang" method="POST">
         @csrf

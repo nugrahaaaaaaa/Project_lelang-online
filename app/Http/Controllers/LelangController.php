@@ -6,6 +6,7 @@ use App\Models\lelang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Barang;
+use Illuminate\Support\Facades\DB;
 
 class LelangController extends Controller
 {
@@ -89,6 +90,8 @@ class LelangController extends Controller
     public function show(lelang $lelang)
     {
         //
+        $showlelang = lelang::find($lelang->id);
+        return view('lelang.show', compact('showlelang'));
     }
 
     /**
@@ -100,6 +103,8 @@ class LelangController extends Controller
     public function edit(lelang $lelang)
     {
         //
+        $editlelang = lelang::all();
+        return view('lelang.edit', compact('editlelang'));
     }
 
     /**
@@ -112,6 +117,23 @@ class LelangController extends Controller
     public function update(Request $request, lelang $lelang)
     {
         //
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga_awal' => 'required',
+            'harga_lelang' => 'required',
+            'tanggal' => 'required',
+        ]);
+
+         $query = DB::table('lelang')
+        ->where('id',$lelangs->id)
+        ->update([
+            "nama_barang" => $request["nama_barang"],
+            "harga_awal"  => $request["Harga_awal"],
+            "harga_lelang"  => $request["harga_lelang"],
+            "tanggal"  => $request["tanggal"],
+        ]);
+        return redirect ('/lelang');
+
     }
 
     /**
@@ -123,5 +145,7 @@ class LelangController extends Controller
     public function destroy(lelang $lelang)
     {
         //
+        $query = DB::table('lelangs')->where('id',$lelang ->id)->delete();
+        return redirect ('/lelang');
     }
 }

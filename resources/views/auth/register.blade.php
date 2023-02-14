@@ -17,12 +17,12 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="{{ asset('adminLTE/index2.html')}}"><b>Admin</b>LTE</a>
+    <a href="{{ asset('adminLTE/index2.html')}}"><b>Register</b></a>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Terbuat aku terlebih dahulu </p>
 
       <form action="{{ route('register.store')}}" method="post">
         @csrf
@@ -72,7 +72,7 @@
         </div>
       </form>
 
-      <a href="/login" class="text-center">Back to page login</a>
+      <a href="/login" class="text-center">kembali ke halaman login</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

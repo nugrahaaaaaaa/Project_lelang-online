@@ -12,7 +12,7 @@ class lelang extends Model
     protected $fillable = [
         'barang_id',
         'users_id',
-        'harga_akhir',
+        'harga_awal',
         'harga_akhir',
         'tanggal_akhir',
         'status',

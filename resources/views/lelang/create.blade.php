@@ -7,7 +7,7 @@
   <div class="row match-height">
       <div class="col-12">
           <div class="card">
-              <div class="card-header">
+              <div class="card-header bg-primary text-white">
                   <h4 class="card-title">{{ __('Tambah Barang Yang Akan Di Lelang') }}</h4>
               </div>
               <div class="card-content">
@@ -17,7 +17,7 @@
                         <div class="row">
                           <div class="col-12">
                             <div class="form-group mandatory">
-                              <label for="barangs_id" class="form-label">{{ __('Nama Barang') }}</label>
+                              <label for="barangs_id" placeholder="Pilih Barang" class="form-label">Nama Barang</label>
                               <select class="form-select form-control @error('barangs_id') is-invalid @enderror" id="barangs_id" name="barangs_id" data-parsley-required="true">
                                 <option value="" disabled>Pilih Barang</option>
                                 @forelse ($barangs as $item)
@@ -52,19 +52,13 @@
                                 @enderror
                             </div>
                           </div>
-                          <div class="row">
-                              <div class="col-6 d-flex justify-content-start">
-                                  <a href="{{ route('barang.index') }}" class="btn btn-outline-info me-1 mb-1">
-                                    {{ __('Kembali') }}
-                                  </a>
-                              </div>
-                            <div class="col-6 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">
-                                  {{ __('Submit') }}
-                                </button>
-                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">
-                                  {{ __('Reset') }}
-                                </button>
+                          <a class="btn btn-primary" href="{{ route('lelang.index') }}">
+                               <i class="fas fa-arrow-left"></i>
+                                Back
+                              </a>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="reset" class="btn btn-primary">Reset</button>
+                            
                             </div>
                           </div>
                       </form>

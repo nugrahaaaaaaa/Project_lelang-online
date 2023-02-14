@@ -7,11 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
-
-
-
-
-
+use App\Http\Controllers\ListlelangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,21 +23,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//register
 Route::get('register', [RegisterController::class, 'view'])->name('register')->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 
 route::resource('barang',BarangController::class);
 route::resource('lelang',LelangController::class);
 
+//login
 route::get('login',[LoginController::class, 'view'])->name('login')->middleware('guest');
 route::post('login', [LoginController::class,'proses'])->name('login.proses')->middleware('guest');
+
+//logout
 route::get('logout',[LogoutController::class,'logout'])->name('logout-petugas');
 
 Route::view('error/403', 'error.403')->name('error.403');
 
+//memisahkan halaman
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
 route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');
 route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashboard.masyarakat')->middleware('auth','level:masyarakat');
+
+
+route::get('/listlelang',[ListlelangController::class,'index'])->name('listlelang.index')->middleware('auth','level:masyarakat');
+
+route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin,petugas');
+
+
 
 
 
