@@ -11,13 +11,13 @@
     <table class="table table-striped" style="width: 100%" id="table1">
 <thead>
           <tr>
-            <th>no</th>
-            <th>nama_barang</th>
-            <th>tanggal</th>
-            <th>harga awal</th>
-            <th>image</th>
-            <th>deskripsi</th>
-            <th>actions</th>
+            <th>No</th>
+            <th>Nama barang</th>
+            <th>Tanggal</th>
+            <th>Harga awal</th>
+            <th>Image</th>
+            <th>Deskripsi</th>
+            <th>Actions</th>
           </tr>
         </thead>
     <tbody>
@@ -27,7 +27,10 @@
             <td>{{ $barang->nama_barang}}</td>
             <td>{{ $barang->tanggal}}</td>
             <td>{{ $barang->harga_awal}}</td>
-            <td>{{ $barang->image}}</td>
+            <td>@if ($barang->image)
+              <img src="{{ asset('storage/' . $barang->image)}}" alt="" width="80">
+              @endif
+            </td>
             <td>{{ $barang->deskripsi}}</td>
             <td> 
             <form action="/barang/{{$barang->id}}" method="POST">

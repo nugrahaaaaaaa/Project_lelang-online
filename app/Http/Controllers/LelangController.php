@@ -67,7 +67,7 @@ class LelangController extends Controller
                 'tanggal_lelang.required'   => 'Tanggal Lelang Harus Diisi',
                 'tanggal_lelang.date'       => 'Tanggal Lelang Harus Berupa Tanggal',
                 'harga_akhir.required'      => 'Harga Akhir Harus Diisi',
-                'harga_akhir.numeric'       => 'Harga Akhir Harus Berupa Angka',
+                'harga_akhir.required'       => 'Masukan harga akhir',
             ]
         );
         $lelang = new Lelang;
@@ -124,14 +124,13 @@ class LelangController extends Controller
             'tanggal' => 'required',
         ]);
 
-         $query = DB::table('lelang')
-        ->where('id',$lelangs->id)
-        ->update([
-            "nama_barang" => $request["nama_barang"],
-            "harga_awal"  => $request["Harga_awal"],
-            "harga_lelang"  => $request["harga_lelang"],
-            "tanggal"  => $request["tanggal"],
-        ]);
+        $lelang = lelang::find($lelang->id);
+        $lelang->nama_barang = $request->nama_barang;
+        $lelang->harga_awal = $request->harga_awal;
+        $lelang->harga_lelang = $request->Harga_lelang;
+        $lelang->tanggal = $request->tanggal;
+        $lelang->update();
+  
         return redirect ('/lelang');
 
     }

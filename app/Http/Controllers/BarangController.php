@@ -41,7 +41,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
+        $permintaan=$request->validate([
             'nama_barang'=>'required',
             'tanggal'=>'required',
             'harga_awal'=>'required',
@@ -52,13 +52,13 @@ class BarangController extends Controller
             $permintaan['image'] = $request->file('image')->store('post-images');
         }
 
-        $query = DB::table('barangs')->insert([
-            "nama_barang"=>$request["nama_barang"],
-            "tanggal"=>$request["tanggal"],
-            "harga_awal"=>$request["harga_awal"],
-            "image"=>$request["image"],
-            "deskripsi"=>$request["deskripsi"],
-        ]);
+        // $query = DB::table('barangs')->insert([
+        //     "nama_barang"=>$request["nama_barang"],
+        //     "tanggal"=>$request["tanggal"],
+        //     "harga_awal"=>$request["harga_awal"],
+        //     "image"=>$request["image"],
+        //     "deskripsi"=>$request["deskripsi"],
+        // ]);
 
         barang::create($permintaan);
         
@@ -87,8 +87,8 @@ class BarangController extends Controller
     public function edit(barang $barang)
     {
         //
-        $editbarang = barang::all();
-        return view('barang.edit', compact('editbarang'));
+        $barangs = Barang::find($barang->id);
+        return view('barang.edit', compact('barangs'));
     }
 
     /**
@@ -110,15 +110,13 @@ class BarangController extends Controller
            
         ]);
 
-         $query = DB::table('barang')
-        ->where('id',$barangs->id)
-        ->update([
-            "nama_barang" => $request["nama_barang"],
-            "tanggal"  => $request["tanggal"],
-            "harga_awal"  => $request["harga_awal"],
-            "image" => $request["image"],
-            "deskripsi"  => $request["deskripsi"],
-        ]);
+        $barang = barang::find($barang->id);
+        $barang->nama_barang = $request->nama_barang;
+        $barang->tanggal = $request->tanggal;
+        $barang->harga_awal = $request->Harga_awal;
+        $barang->image = $request->image;
+        $barang->deskripsi = $request->deskripsi;
+        $barang->update();
 
         if($request->file('image')){
             $permintaan['image'] - $request->file('image')->store('post-images');

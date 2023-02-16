@@ -1,13 +1,22 @@
-<aside id="sidebar" class="sidebar">
 
 <ul class="sidebar-nav" id="sidebar-nav">
-
+@if (auth()->user()->level == 'admin')
   <li class="nav-item">
-    <a class="nav-link collapsed" href="/">
+    <a class="nav-link collapsed" href="/dashboard/admin">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>
   </li><!-- End Dashboard Nav -->
+  @endif
+
+  @if (auth()->user()->level == 'petugas')
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="/dashboard/petugas">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  @endif
 
   @if (auth()->user()->level == 'admin')
   <li class="nav-item">
@@ -68,7 +77,7 @@
     </a>
     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="/lelang">
+        <a href="/listlelang">
           <i class="bi bi-circle"></i><span>Data Lelang</span>
         </a>
       </li>

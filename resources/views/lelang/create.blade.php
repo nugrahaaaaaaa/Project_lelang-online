@@ -14,6 +14,7 @@
                   <div class="card-body">
                       <form class="form" method="POST" action="{{ route('lelang.store') }}" data-parsley-validate>
                         @csrf
+                        <br>
                         <div class="row">
                           <div class="col-12">
                             <div class="form-group mandatory">
@@ -32,6 +33,7 @@
                             @enderror
                           </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
@@ -52,6 +54,7 @@
                                 @enderror
                             </div>
                           </div>
+                          <br>
                           <a class="btn btn-primary" href="{{ route('lelang.index') }}">
                                <i class="fas fa-arrow-left"></i>
                                 Back

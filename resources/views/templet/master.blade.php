@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Components / Accordion - NiceAdmin Bootstrap Template</title>
+  <title>Lelangkeun | lelang terpercaya</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,15 +44,19 @@
 <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
   @include('templet.partials.sidebar')
+</aside>
  <!-- End Sidebar-->
 
+ <main id="main" class="main">
  <!-- End #main -->
  @include('templet.partials.title')
 
  @include('templet.partials.content')
-
+</main>
   <!-- ======= Footer ======= -->
+  <div>  </div>
   <footer id="footer" class="footer">
     <div class="copyright">
       &copy; Copyright <strong><span>Rifki jaya abadi</span></strong>. All Rights Reserved
@@ -65,6 +69,7 @@
       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </footer><!-- End Footer -->
+
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

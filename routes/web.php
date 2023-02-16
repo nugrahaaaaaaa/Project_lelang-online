@@ -37,6 +37,7 @@ route::post('login', [LoginController::class,'proses'])->name('login.proses')->m
 //logout
 route::get('logout',[LogoutController::class,'logout'])->name('logout-petugas');
 
+//laman eror
 Route::view('error/403', 'error.403')->name('error.403');
 
 //memisahkan halaman
@@ -46,8 +47,8 @@ route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashb
 
 
 route::get('/listlelang',[ListlelangController::class,'index'])->name('listlelang.index')->middleware('auth','level:masyarakat');
-
-route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin,petugas');
+route::get('/lelang/create',[LelangController::class,'create'])->name('lelang.create')->middleware('auth','level:petugas');
+route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');
 
 
 
