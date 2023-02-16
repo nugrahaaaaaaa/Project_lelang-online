@@ -1,4 +1,4 @@
-@extends('template.master')
+@extends('templet.master')
 
 @section('subtitle', 'Data Lelang')
 
@@ -8,7 +8,7 @@
       <div class="col-12">
           <div class="card">
               <div class="card-header bg-primary text-white">
-                  <h4 class="card-title">{{ __('Tambah Barang Yang Akan Di Lelang') }}</h4>
+                  <h4 class="card-title text-white">{{ __('Tambah Barang Yang Akan Di Lelang') }}</h4>
               </div>
               <div class="card-content">
                   <div class="card-body">
@@ -45,7 +45,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group mandatory">
                                     <label for="harga_awal" class="form-label">{{ __('Harga Akhir') }}</label>
-                                    <input type="number" id="harga_akhir" class="form-control @error('harga_akhir') is-invalid @enderror" placeholder="Input Harga, Hanya Angka" name="harga_akhir" data-parsley-required="true" value="{{ old('harga_akhir') }}">
+                                    <input type="text" id="harga_akhir" class="form-control @error('harga_akhir') is-invalid @enderror" placeholder="Input Harga, Hanya Angka" name="harga_akhir" data-parsley-required="true" value="{{ old('harga_akhir') }}">
                                 </div>
                                 @error('harga_akhir')
                                   <div class="alert alert-danger" role="alert">{{ $message }}</div>

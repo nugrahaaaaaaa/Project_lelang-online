@@ -12,10 +12,26 @@
         <div class="image">
           <img src="{{ asset ('adminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
+        @if (auth()->user()->level == 'admin')
         <div class="info">
-          <a href="#" class="d-block">Rifki Jaya Abadi</a>
+          <a>ADMIN</a>
         </div>
       </div>
+      @endif
+
+      @if (auth()->user()->level == 'petugas')
+        <div class="info">
+          <a>PETUGAS</a>
+        </div>
+      </div>
+      @endif
+
+      @if (auth()->user()->level == 'masyarakat')
+        <div class="info">
+          <a>User</a>
+        </div>
+      </div>
+      @endif
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -34,38 +50,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               @if (auth()->user()->level == 'admin')
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-id-card"></i>
-              <p>
-                ADMIN
-              </p>
-            </a>
-          </li>
-          @endif
-
-          @if (auth()->user()->level == 'petugas')
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-id-card"></i>
-              <p>
-                PETUGAS
-              </p>
-            </a>
-          </li>
-          @endif
-
-          @if (auth()->user()->level == 'masyarakat')
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-id-card"></i>
-              <p>
-                
-              </p>User
-            </a>
-          </li>
-          @endif
 
           @if (auth()->user()->level == 'admin')
           <li class="nav-item">
@@ -92,14 +76,6 @@
               <i class="nav-icon fas fa-cubes"></i>
               <p>
                 Barang
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/barang/create" class="nav-link">
-            <i class="nav-icon fa fa-plus-circle"></i>
-              <p>
-                Tambah Barang
               </p>
             </a>
           </li>

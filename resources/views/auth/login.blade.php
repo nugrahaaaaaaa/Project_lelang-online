@@ -42,6 +42,9 @@
             </div>
           </div>
         </div>
+        <div class="col-20">
+                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                    </div>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -49,13 +52,14 @@
               </div>
           </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
+          
           <!-- /.col -->
+          
         </div>
         <p class="mb-0">
-        <a href="/register" class="text-center">Buat akun baru</a>
+        <a href="/register" class="text-center">Create account</a>
+        <br>
+        <a href="/" class="text-center">Dashboard</a>
       </p>
       </form>
 

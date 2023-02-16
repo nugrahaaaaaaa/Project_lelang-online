@@ -14,6 +14,7 @@ class barang extends Model
         'nama_barang',
         'tanggal',
         'harga_awal',
+        'image',
         'deskripsi',
     ];
 }

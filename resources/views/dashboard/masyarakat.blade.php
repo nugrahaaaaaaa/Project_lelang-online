@@ -1,1 +1,1 @@
-@extends('template.master')
+@extends('templet.master')

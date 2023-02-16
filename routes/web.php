@@ -20,7 +20,7 @@ use App\Http\Controllers\ListlelangController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //register

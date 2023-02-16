@@ -1,9 +1,9 @@
-@extends('template.master')
+@extends('templet.master')
 
 @section('content')
 <div class="card">
-    <div class="card-header bg-primary text-white">
-        <h3 class="card-title">Membuat Data Baru</h3>
+    <div class="card-header bg-primary ">
+        <h3 class="card-title text-white">Membuat Data Baru</h3>
     </div>
     <form action="/barang" method="POST">
         @csrf
@@ -19,7 +19,12 @@
                 <br>
                 <div class="form-group">
                 <label for="harga_awal">harga awal</label>
-                <input type="number" name="harga_awal" class="form-control" id="inputharga_awal" placeholder="masukan harga awal">
+                <input type="text" name="harga_awal" class="form-control" id="inputharga_awal" placeholder="masukan harga awal">
+                <br>
+                <form action="" method="POST" enctype="multipart/form/data">
+                <b>File Upload</b> <input type="file" name="image">
+                </form>
+                <br>
                 <br>
                 <label for="deskripsi">deskripsi</label>
                 <textarea name="deskripsi" class="form-control" id="inputdeskripsi" cols="50" rows="4"></textarea>

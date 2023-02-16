@@ -1,9 +1,9 @@
-@extends('template.master')
+@extends('templet.master')
 
 @section('content')
   <div class="card">
-      <div class="card-header bg-primary text-white">
-       <h5 class="card-title">Masukan Lelang Terbaru</h5>
+      <div class="card-header bg-primary ">
+       <h5 class="card-title text-white">Masukan Lelang Terbaru</h5>
       </div>
       <div class="card-header">
       <div class="card-body">

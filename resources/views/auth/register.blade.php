@@ -22,7 +22,7 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Terbuat aku terlebih dahulu </p>
+      <p class="login-box-msg">Buat akun terlebih dahulu</p>
 
       <form action="{{ route('register.store')}}" method="post">
         @csrf
@@ -58,6 +58,9 @@
             </div>
           </div>
         </div>
+        <div class="col-20">
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+          </div>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -65,14 +68,11 @@
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-30">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-          </div>
+          
           <!-- /.col -->
         </div>
       </form>
-
-      <a href="/login" class="text-center">kembali ke halaman login</a>
+      <a href="/login" class="text-center">Back to Log In</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

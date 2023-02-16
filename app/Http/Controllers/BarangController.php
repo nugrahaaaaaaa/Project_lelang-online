@@ -45,15 +45,23 @@ class BarangController extends Controller
             'nama_barang'=>'required',
             'tanggal'=>'required',
             'harga_awal'=>'required',
-            'deskripsi'=>'required'
+            'image'=>'image|file',
+            'deskripsi'=>'required',
         ]);
+        if ($request->file('image')) {
+            $permintaan['image'] = $request->file('image')->store('post-images');
+        }
 
         $query = DB::table('barangs')->insert([
             "nama_barang"=>$request["nama_barang"],
             "tanggal"=>$request["tanggal"],
             "harga_awal"=>$request["harga_awal"],
-            "deskripsi"=>$request["deskripsi"]
+            "image"=>$request["image"],
+            "deskripsi"=>$request["deskripsi"],
         ]);
+
+        barang::create($permintaan);
+        
         return redirect('/barang');
     }
 
@@ -97,7 +105,9 @@ class BarangController extends Controller
             'nama_barang' => 'required',
             'tanggal' => 'required',
             'harga_awal' => 'required',
+            'image' => 'image|file|max:10024',
             'deskripsi' => 'required',
+           
         ]);
 
          $query = DB::table('barang')
@@ -106,8 +116,15 @@ class BarangController extends Controller
             "nama_barang" => $request["nama_barang"],
             "tanggal"  => $request["tanggal"],
             "harga_awal"  => $request["harga_awal"],
+            "image" => $request["image"],
             "deskripsi"  => $request["deskripsi"],
         ]);
+
+        if($request->file('image')){
+            $permintaan['image'] - $request->file('image')->store('post-images');
+        }
+        barang::create($permintaan);
+
         return redirect ('/barang');
 
     }

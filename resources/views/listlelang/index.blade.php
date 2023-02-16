@@ -1,4 +1,4 @@
-@extends('template.master')
+@extends('templet.master')
 
 @section('content')
 <section class="section">
