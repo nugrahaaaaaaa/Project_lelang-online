@@ -32,8 +32,10 @@
                     </td>
                     <td>
                     <form action="/lelang/{{$lelang->id}}" method="POST">
-              <a class="btn btn-info mr-3" href="lelang/{{$lelang->id}}">Detail</a>
+              <a class="btn btn-info mr-3 text-white" href="lelang/{{$lelang->id}}">Detail</a>
+              @if (auth()->user()->level == 'admin')
               <a class="btn btn-warning mr-3" href="lelang{{$lelang->id}}/edit/">Edit</a>
+              @endif
               @csrf
               @method('DELETE')
               <input type="submit" class="btn btn-danger" value="Delete">

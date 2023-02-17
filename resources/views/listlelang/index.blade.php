@@ -33,8 +33,7 @@
                     </td>
                     <td> 
             <form action="/listlelang/{{$lelang->id}}" method="POST">
-              <a class="btn btn-info mr-3" href="listlelang/{{$lelang->id}}">Detail</a>
-              <a class="btn btn-warning mr-3" href="lelang{{$lelang->id}}/edit/">Bid</a>
+              <a class="btn btn-warning mr-3" href="listlelang/{{$lelang->id}}">Bid</a>
               @csrf
             </form>
             </td>

@@ -27,7 +27,7 @@ class RedirectIfAuthenticated
             else if(Auth::user()->level =='petugas')
                  return redirect()->route('dashboard.petugas');
             else if(Auth::user()->level =='masyarakat')
-                 return redirect()->route('dashboard.masyarakat');
+                 return redirect()->route('listlelang.index');
             }
         }
             return $next($request);

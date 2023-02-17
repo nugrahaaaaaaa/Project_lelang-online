@@ -59,7 +59,7 @@
         <p class="mb-0">
         <a href="/register" class="text-center">Create account</a>
         <br>
-        <a href="/" class="text-center">Dashboard</a>
+        <a href="/" class="text-center">Back to Home</a>
       </p>
       </form>
 

@@ -17,4 +17,9 @@ class barang extends Model
         'image',
         'deskripsi',
     ];
+
+    public function barang()
+    {
+        return $this->belongsTo(Lelang::class);
+    }
 }

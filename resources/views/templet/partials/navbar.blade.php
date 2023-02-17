@@ -108,9 +108,8 @@
       </ul><!-- End Messages Dropdown Items -->
 
     </li><!-- End Messages Nav -->
-
     <li class="nav-item dropdown pe-3">
-    @if (auth()->user()->level == 'admin')
+      @if (auth()->user()->level == 'admin')
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
         <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
       </a><!-- End Profile Iamge Icon -->
@@ -130,7 +129,7 @@
           <hr class="dropdown-divider">
         </li>
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="/logout">
+          <a class="dropdown-item d-flex align-items-center" href="/">
             <i class="bi bi-person"></i>
             <span>Profil</span>
           </a>

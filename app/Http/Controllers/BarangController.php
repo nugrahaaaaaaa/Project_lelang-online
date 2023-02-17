@@ -51,7 +51,7 @@ class BarangController extends Controller
         if ($request->file('image')) {
             $permintaan['image'] = $request->file('image')->store('post-images');
         }
-
+            
         // $query = DB::table('barangs')->insert([
         //     "nama_barang"=>$request["nama_barang"],
         //     "tanggal"=>$request["tanggal"],
@@ -105,7 +105,7 @@ class BarangController extends Controller
             'nama_barang' => 'required',
             'tanggal' => 'required',
             'harga_awal' => 'required',
-            'image' => 'image|file|max:10024',
+            'image' => 'image|file',
             'deskripsi' => 'required',
            
         ]);
@@ -117,6 +117,15 @@ class BarangController extends Controller
         $barang->image = $request->image;
         $barang->deskripsi = $request->deskripsi;
         $barang->update();
+
+        // Barang::where('id', $barang->id)
+        // ->update([
+        //     'nama_barang' => Str::lower($request->nama_barang),
+        //     'tanggal' => $request->tanggal,
+        //     'image' => $request->image,
+        //     'harga_awal' => $request->harga_awal,
+        //     'deskripsi' => Str::lower($request->deskripsi),
+        // ]);
 
         if($request->file('image')){
             $permintaan['image'] - $request->file('image')->store('post-images');

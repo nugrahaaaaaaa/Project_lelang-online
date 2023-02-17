@@ -11,11 +11,11 @@
         <br>
         <div class="card-body">
             <div class="form-group">
-                <label for="nama_barang">Nama barang</label>
+                <label for="nama_barang"><b>Nama barang</b></label>
                 <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="masukan nama barang">
                 <br>
                 <div class="form-group">
-                <label for="tanggal">Tanggal</label>
+                <label for="tanggal"><b>Tanggal</b></label>
                 <input type="date" name="tanggal" class="form-control" id="inputtanggal" placeholder="masukan tanggal">
                 <br>
                 <div class="form-group">

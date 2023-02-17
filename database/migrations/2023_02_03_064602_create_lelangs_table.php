@@ -19,6 +19,7 @@ class CreateLelangsTable extends Migration
             $table->foreignId('users_id')->constrained('users');
             $table->date('tanggal_lelang');
             $table->string('harga_akhir');
+            $table->string('image')->nullable();
             $table->enum('status',['dibuka','ditutup']);
             $table->timestamps();
         });

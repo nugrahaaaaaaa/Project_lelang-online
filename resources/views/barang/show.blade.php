@@ -9,6 +9,7 @@
             <form action="/barang" method="POST">
                 @csrf
                 <br>
+                @if (!empty('lelangs'))
                 <div class="card-body">
                   <div class="form-group">
                     <label for=""><b>Nama Barang</b></label>
@@ -32,7 +33,7 @@
                     <input type="text" name="deskripsi" class="form-control" id="exampleInputEmail1"  value="{{ $showbarang->deskripsi }}" disabled>
                         <br>
                         <div class="card-footer">
-                    <a class="btn btn-primary" href="{{ route('barang.index')}}">
+                    <a class="btn btn-primary w-35" href="{{ route('barang.index')}}">
                     <i class="fas fa-arrow-left"></i>  
                    Back
                 </a>
@@ -40,6 +41,7 @@
 </form>
 </body>
 </div>
+@endif
 </div>
 </div>    
 @endsection

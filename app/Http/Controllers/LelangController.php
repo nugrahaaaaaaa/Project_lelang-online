@@ -54,7 +54,7 @@ class LelangController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate(
+        $pelelangan=$request->validate(
             [
                 'barangs_id'         => 'required|exists:barangs,id|unique:lelangs,barangs_id',
                 'tanggal_lelang'    => 'required|date',
@@ -68,8 +68,11 @@ class LelangController extends Controller
                 'tanggal_lelang.date'       => 'Tanggal Lelang Harus Berupa Tanggal',
                 'harga_akhir.required'      => 'Harga Akhir Harus Diisi',
                 'harga_akhir.required'       => 'Masukan harga akhir',
-            ]
-        );
+            ]);
+            
+            if ($request->file('image')) {
+                $pelelangan['image'] = $request->file('image')->store('post-images');
+            }
         $lelang = new Lelang;
         $lelang->barangs_id = $request->barangs_id;
         $lelang->tanggal_lelang = $request->tanggal_lelang;

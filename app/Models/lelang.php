@@ -14,7 +14,8 @@ class lelang extends Model
         'users_id',
         'harga_awal',
         'harga_akhir',
-        'tanggal_akhir',
+        'tanggal_lelang',
+        'image',
         'status',
     ];
 

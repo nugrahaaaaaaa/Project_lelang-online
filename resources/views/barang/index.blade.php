@@ -15,7 +15,7 @@
             <th>Nama barang</th>
             <th>Tanggal</th>
             <th>Harga awal</th>
-            <th>Image</th>
+            <!-- <th>Image</th> -->
             <th>Deskripsi</th>
             <th>Actions</th>
           </tr>
@@ -24,18 +24,17 @@
          @foreach ($barangs as $barang)
           <tr>
             <td>{{ $loop->iteration}}</td>
-            <td>{{ $barang->nama_barang}}</td>
-            <td>{{ $barang->tanggal}}</td>
-            <td>{{ $barang->harga_awal}}</td>
-            <td>@if ($barang->image)
-              <img src="{{ asset('storage/' . $barang->image)}}" alt="" width="80">
-              @endif
-            </td>
+            <td>{{ $barang->nama_barang }}</td>
+            <td>{{ $barang->tanggal }}</td>
+            <td>{{ $barang->harga_awal }}</td>
+         
             <td>{{ $barang->deskripsi}}</td>
             <td> 
             <form action="/barang/{{$barang->id}}" method="POST">
-              <a class="btn btn-info mr-3" href="barang/{{$barang->id}}">Detail</a>
+              <a class="btn btn-info mr-3 text-white" href="barang/{{$barang->id}}">Detail</a>
+              @if (auth()->user()->level == 'admin')
               <a class="btn btn-warning mr-3" href="barang/{{$barang->id}}/edit/">Edit</a>
+              @endif
               @csrf
               @method('DELETE')
               <input type="submit" class="btn btn-danger" value="Delete">

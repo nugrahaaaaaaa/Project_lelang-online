@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ListlelangController;
+use App\Http\Controllers\HistoriController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,15 +41,20 @@ route::get('logout',[LogoutController::class,'logout'])->name('logout-petugas');
 //laman eror
 Route::view('error/403', 'error.403')->name('error.403');
 
-//memisahkan halaman
+//admin
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
-route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');
-route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashboard.masyarakat')->middleware('auth','level:masyarakat');
-
-
-route::get('/listlelang',[ListlelangController::class,'index'])->name('listlelang.index')->middleware('auth','level:masyarakat');
-route::get('/lelang/create',[LelangController::class,'create'])->name('lelang.create')->middleware('auth','level:petugas');
 route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');
+
+//petugas
+route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');
+route::get('/lelang/create',[LelangController::class,'create'])->name('lelang.create')->middleware('auth','level:petugas');
+
+//masyarakat
+route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashboard.masyarakat')->middleware('auth','level:masyarakat');
+route::get('/listlelang',[ListlelangController::class,'index'])->name('listlelang.index')->middleware('auth','level:masyarakat');
+route::get('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'create'])->name('lelang.masyarakat.penawaran');
+route::post('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'store'])->name('lelang.masyarakat.penawaran.store');
+
 
 
 
