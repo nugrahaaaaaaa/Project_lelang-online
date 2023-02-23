@@ -30,7 +30,7 @@
         <br>
                     <a class="btn btn-primary" href="{{ route('barang.index')}}">
                     <i class="fas fa-arrow-left"></i>  
-                   Back
+                   Kembali
                 </a>
                 <button type="submit" class="btn btn-primary">Update</button>
 </div>

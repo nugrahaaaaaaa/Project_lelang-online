@@ -1,5 +1,3 @@
-
-
 <div class="pagetitle">
   <h1>
     @yield('title')
@@ -10,4 +8,5 @@
           <li class="breadcrumb-item">Pages</li>
         </ol>
         </nav>
-</div><!-- End Page Title -->
+</div>
+

@@ -1,5 +1,9 @@
 @extends('templet.master')
 
+@section('title')
+Lelang terpercaya 
+@endsection
+
 @section('content')
 <section class="section">
   <div class="card">
@@ -33,7 +37,7 @@
                     </td>
                     <td> 
             <form action="/listlelang/{{$lelang->id}}" method="POST">
-              <a class="btn btn-warning mr-3" href="listlelang/{{$lelang->id}}">Bid</a>
+              <a class="btn btn-warning mr-3" href="/penawaran/{{$lelang->id}}">Bid</a>
               @csrf
             </form>
             </td>

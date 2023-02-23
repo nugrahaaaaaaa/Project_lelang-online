@@ -35,6 +35,16 @@
         </a>
       </li>
     </ul>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person"></i><span>User</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/user">
+              <i class="bi bi-circle"></i><span>Data User</span>
+            </a>
+          </li>
     @endif
 
     @if (auth()->user()->level == 'petugas')

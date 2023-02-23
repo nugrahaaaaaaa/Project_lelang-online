@@ -35,7 +35,7 @@
                         <div class="card-footer">
                     <a class="btn btn-primary w-35" href="{{ route('barang.index')}}">
                     <i class="fas fa-arrow-left"></i>  
-                   Back
+                   Kembali
                 </a>
                   </div>  
 </form>

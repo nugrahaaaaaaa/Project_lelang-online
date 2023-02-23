@@ -8,7 +8,9 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ListlelangController;
-use App\Http\Controllers\HistoriController;
+use App\Http\Controllers\HistoryLelangController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +32,7 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 
 route::resource('barang',BarangController::class);
 route::resource('lelang',LelangController::class);
+route::resource('user',UserController::class);
 
 //login
 route::get('login',[LoginController::class, 'view'])->name('login')->middleware('guest');

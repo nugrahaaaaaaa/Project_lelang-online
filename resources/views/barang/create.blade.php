@@ -32,7 +32,7 @@
                 <br>
                 <a class="btn btn-primary" href="{{ route('barang.index') }}">
                                <i class="fas fa-arrow-left"></i>
-                                Back
+                                Kembali
                               </a>
                           <button type="submit" class="btn btn-primary">Submit</button>
                           <button type="reset" class="btn btn-primary">Reset</button>

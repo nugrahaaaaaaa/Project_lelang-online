@@ -9,7 +9,6 @@
             <form action="/lelang" method="POST">
                 @csrf
                 <br>
-                @if(!empty($barangs))
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nama_barang"><b>Nama Barang<b></label>
@@ -23,8 +22,8 @@
                     <label for="harga_akhir"><b>Harga akhir</b></label>
                     <input type="text" name="harga_akhir" class="form-control" id="exampleInputEmail1" value="{{ $showlelang->harga_akhir }}" disabled>
                     <br>
-                    @if ($showlelang->image)
-              <img src="{{ asset('storage/' . $showlelang->image)}}" alt="" width="500">
+                    @if ($showlelang->barang->image)
+              <img src="{{ asset('storage/' . $showlelang->barang->image)}}" alt="" width="500">
               @endif
               <br>
                     <div class="form-group">
@@ -34,13 +33,12 @@
                         <div class="card-footer">
                     <a class="btn btn-primary" href="{{ route('lelang.index')}}">
                     <i class="fas fa-arrow-left"></i>  
-                   Back
+                   Kembali
                 </a>
                   </div>  
 </form>
 </body>
 </div>
-</div>
-@endif        
+</div> 
 </div>
 @endsection
