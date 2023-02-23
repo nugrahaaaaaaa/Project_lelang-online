@@ -2,7 +2,7 @@
 
 <div class="d-flex align-items-center justify-content-between">
   <a href="index.html" class="logo d-flex align-items-center">
-    <img src="{{ asset('template/assets/img/logo.png')}}" alt="">
+    <!-- <img src="{{ asset('template/assets/img/logo.png')}}" alt=""> -->
     <span class="d-none d-lg-block">Lelangkeun</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -162,7 +162,7 @@ End Search Bar -->
           <hr class="dropdown-divider">
         </li>
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="/logout">
+          <a class="dropdown-item d-flex align-items-center" href="#">
             <i class="bi bi-person"></i>
             <span>Profil</span>
           </a>

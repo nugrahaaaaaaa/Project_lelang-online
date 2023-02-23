@@ -3,14 +3,15 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-8">
+    <div class="col-50 col-md-20">
       <div class="card">
-          <div class="card-header">
-              <h4 class="card-title">{{ __('Bid Barang Yang Akan Di Lelang') }}</h4>
+          <div class="card-header bg-primary">
+              <h4 class="card-title bg-primary text-white">{{ __('Bid Barang Yang Akan Di Lelang') }}</h4>
           </div>
           <div class="card-content">
               <div class="card-body">
-                  <form class="form" method="POST" action="{{ route('lelang.masyarakat.penawaran.store', $lelangs->id) }}" data-parsley-validate>
+                <br>
+                  <form class="form" method="POST" action="{{ route('tawar.store', $lelangs->id) }}" data-parsley-validate>
                     @csrf
                     <div class="row">
                       <div class="col-12">
@@ -20,6 +21,7 @@
                         </div>
                       </div>
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col-md-4 col-12">
                             <div class="form-group mandatory">
@@ -30,22 +32,23 @@
                         <div class="col-md-4 col-12">
                             <div class="form-group mandatory">
                                 <label for="harga_awal" class="form-label">{{ __('Harga Awal') }}</label>
-                                <input type="text" id="harga_awal" class="form-control" placeholder="Input Harga, Hanya Angka" name="harga_awal" data-parsley-required="true" value="@currency($lelangs->barang->harga_awal)" disabled>
+                                <input type="text" id="harga_awal" class="form-control" placeholder="Input Harga, Hanya Angka" name="harga_awal" data-parsley-required="true" value="{{ $lelangs->barang->harga_awal }}" disabled>
                             </div>
                         </div>
                         <div class="col-md-4 col-12">
                           <div class="form-group mandatory">
                               <label for="harga_penawaran" class="form-label">{{ __('Harga Bid') }}</label>
-                              <input type="text" id="harga_penawaran" class="form-control" placeholder="Input Harga, Hanya Angka" name="harga_penawaran" data-parsley-required="true" value="{{ old('harga_penawaran') }}">
+                              <input type="number" id="harga_penawaran" class="form-control" placeholder="Input Harga, Hanya Angka" name="harga_penawaran" data-parsley-required="true" value="{{ old('harga_penawaran') }}">
                           </div>
                           @error('harga_penawaran')
                             <div class="aler alert-danger" role="alert">{{ $message }}</div>
                           @enderror
                       </div>
                       </div>
+                      <br>
                       <div class="row">
                           <div class="col-6 d-flex justify-content-start">
-                              <a href="{{ route('barang.index') }}" class="btn btn-outline-info me-1 mb-1">
+                              <a href="{{ route('listlelang.index') }}" class="btn btn-outline-info me-1 mb-1">
                                 {{ __('Kembali') }}
                               </a>
                           </div>
@@ -64,8 +67,6 @@
       </div>
     </div>
     <div class="col-12 col-md-4">
-      <div class="card">
-        <div class="card-body">
 
         </div>
       </div>

@@ -24,12 +24,12 @@ class HistoryLelangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(HistoryLelang $historylelang, Lelang $lelangs)
+    public function create(HistoryLelang $historylelang, Lelang $lelang)
     {
         //
         $lelangs = Lelang::find($lelang->id);
         $historylelangs = HistoryLelang::all();
-        return view('masyarakat.penawaran', compact('lelangs', 'historyLelangs'));
+        return view('masyarakat.penawaran', compact('lelangs', 'historylelangs'));
     }
 
     /**

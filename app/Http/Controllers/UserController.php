@@ -47,9 +47,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
+        $user = User::find($user->id);
+        return view('user.index', compact('user'));
     }
 
     /**
@@ -58,9 +60,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
+        $user = User::find($user->id);
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -73,6 +77,21 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'level' => 'required',
+            'telepon' => 'required',
+        ]);
+
+        $user = user::find($user->id);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->level = $request->level;
+        $user->telepon = $request->telepon;
+        $user->update();
+  
+        return redirect()->route('user.index');
     }
 
     /**
