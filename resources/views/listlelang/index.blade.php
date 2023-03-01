@@ -37,6 +37,7 @@ Lelang terpercaya
                     </td>
                     <td> 
             <form action="/listlelang/{{$lelang->id}}" method="POST">
+               <a class="btn btn-info mr-3 text-white" href="lelang/{{$lelang->id}}">Detail</a>
               <a class="btn btn-warning mr-3" href="{{ route ('tawar', $lelang->id)}}">Bid</a>
               @csrf
             </form>

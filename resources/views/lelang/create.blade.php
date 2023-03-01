@@ -1,6 +1,8 @@
 @extends('templet.master')
 
-@section('subtitle', 'Data Lelang')
+@section('title')
+Lelang Terpercaya
+@endsection
 
 @section('content')
 <section id="multiple-column-form">
@@ -35,7 +37,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-6 col-12">
+                            <div class=" col-12">
                                 <div class="form-group mandatory">
                                     <label for="tanggal_lelang" class="form-label"><b>{{ __('Tanggal Lelang') }}</b></label>
                                     <input type="date" id="tanggal_lelang" class="form-control @error('tanggal_lelang') is-invalid @enderror" name="tanggal_lelang" data-parsley-required="true" value="{{ old('tanggal_lelang') }}">
@@ -43,25 +45,15 @@
                                 @error('tanggal_lelang')
                                   <div class="alert alert-danger" role="alert">{{ $message }}</div>
                                 @enderror
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group mandatory">
-                                    <label for="harga_awal" class="form-label"><b>{{ __('Harga Akhir') }}</b></label>
-                                    <input type="text" id="harga_akhir" class="form-control @error('harga_akhir') is-invalid @enderror" placeholder="Input Harga, Hanya Angka" name="harga_akhir" data-parsley-required="true" value="{{ old('harga_akhir') }}">
-                                </div>
-                                @error('harga_akhir')
-                                  <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                                @enderror
-                            </div>
-                          </div>
+</div>
+</div>
                           <br>
-                          <a class="btn btn-primary" href="{{ route('lelang.index') }}">
+                          <a class="btn btn-primary w-10" href="{{ route('lelang.index') }}">
                                <i class="fas fa-arrow-left"></i>
                                 Back
                               </a>
                           <button type="submit" class="btn btn-primary">Submit</button>
                           <button type="reset" class="btn btn-primary">Reset</button>
-                            
                             </div>
                           </div>
                       </form>

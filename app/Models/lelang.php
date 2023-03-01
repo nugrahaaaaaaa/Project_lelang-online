@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Barang;
+use App\Models\HistoryLelang;
+
 
 class lelang extends Model
 {
@@ -22,5 +25,9 @@ class lelang extends Model
     public function barang()
     {
         return $this->hasOne('App\Models\barang','id','barangs_id');
+    }
+    public function historylelang()
+    {
+        return $this->belongTo(historylelang::class);
     }
 }

@@ -12,7 +12,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="name"><b>Nama</b></label>
-                    <input type="text" name="nama_barang" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->name }}" disabled>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->name }}" disabled>
                     <br>
                     <div class="form-group">
                     <label for="username"><b>Username</b></label>

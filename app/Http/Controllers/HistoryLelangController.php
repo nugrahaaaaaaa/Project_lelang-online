@@ -28,7 +28,7 @@ class HistoryLelangController extends Controller
     {
         //
         $lelangs = Lelang::find($lelang->id);
-        $historylelangs = HistoryLelang::all();
+        $historylelangs = HistoryLelang::orderBy('harga', 'desc')->get()->where('lelang_id', $lelang->id);
         return view('masyarakat.penawaran', compact('lelangs', 'historylelangs'));
     }
 
@@ -55,7 +55,7 @@ class HistoryLelangController extends Controller
         $historyLelang->status = 'pending' ;
         $historyLelang->save();
 
-        return redirect()->route('lelang.masyarakat.list');
+        return redirect()->route('tawar', $lelang->id);
     }
 
     /**

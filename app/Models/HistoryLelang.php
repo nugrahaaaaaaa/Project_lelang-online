@@ -18,4 +18,12 @@ class HistoryLelang extends Model
         'tanggal',
         'status ',
     ];
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'users_id');
+    }
+    public function lelang()
+    {
+        return $this->hasOne('App\Models\Lelang', 'id', 'lelang_id');
+    }
 }

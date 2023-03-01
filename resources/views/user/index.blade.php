@@ -27,7 +27,7 @@ Lelang terpercaya
          @foreach ($user as $value)
           <tr>
             <td>{{ $loop->iteration}}</td>
-            <td>{{ $value->name}}</td>
+            <td>{{ $value->name }}</td>
             <td>{{ $value->username }}</td>
             <td>{{ $value->level }}</td>
             <td>{{ $value->telepon}}</td>

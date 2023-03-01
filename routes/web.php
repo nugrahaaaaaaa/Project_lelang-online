@@ -32,9 +32,7 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 
 route::resource('barang',BarangController::class);
 route::resource('lelang',LelangController::class);
-route::resource('user',UserController::class);
-
-route::get('/user',[UserController::class, 'index'])->name('user.index')->middleware('auth', 'level:admin');
+// route::resource('user',UserController::class);
 
 //login
 route::get('login',[LoginController::class, 'view'])->name('login')->middleware('guest');
@@ -49,18 +47,26 @@ Route::view('error/403', 'error.403')->name('error.403');
 //admin
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
 route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');
+// route::PUT('barang/{barang} ', [BarangController::class, 'update'])->name('barang.update')->middleware('auth','level:admin');
+// route::get('barang/{barang}/edit', [BarangController::class, 'edit'])->name('barang.edit')->middleware('auth','level:admin');
 
 //petugas
 route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');
 route::get('/lelang/create',[LelangController::class,'create'])->name('lelang.create')->middleware('auth','level:petugas');
+route::post('/lelang', [LelangController::class, 'lelang.store'])->name('lelang.store')->middleware('auth', 'level:petugas');
 
 //masyarakat
 route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashboard.masyarakat')->middleware('auth','level:masyarakat');
 route::get('/listlelang',[ListlelangController::class,'index'])->name('listlelang.index')->middleware('auth','level:masyarakat');
 route::get('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'create'])->name('tawar');
 route::post('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'store'])->name('tawar.store');
-// route::get('user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth', 'level:admin');
-// route::put('user/{user}',[UserController::class, 'update'])->name('user.update')->middleware('guest');
+
+//user
+route::get('/user',[UserController::class, 'index'])->name('user.index')->middleware('auth', 'level:admin');
+route::get('user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth', 'level:admin');
+route::put('user/{user}',[UserController::class, 'update'])->name('user.update')->middleware('auth', 'level:admin');
+route::get('user/{user}',[UserController::class, 'show'])->name('user.show');
+
 
 
 

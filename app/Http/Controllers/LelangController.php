@@ -35,14 +35,16 @@ class LelangController extends Controller
      */
     public function create()
     {
-        //
+        
         $barangs = Barang::select('id', 'nama_barang', 'harga_awal')
                     ->whereNotIn('id', function($query)
                         { 
                             $query->select('barangs_id')->from('lelangs');
                         }
                     )->get();
-        return view('lelang.create', compact('barangs'));
+        return view('lelang.create', compact('barangs'));   
+
+        return view('lelang.create');
     }
 
     /**

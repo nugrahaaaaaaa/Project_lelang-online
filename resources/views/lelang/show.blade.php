@@ -1,5 +1,9 @@
 @extends('templet.master')
 
+@section('title')
+Lelang Terpercaya
+@endsection
+
 @section('content')
 <div class="card">
 <div class="card-header bg-primary">
@@ -30,12 +34,22 @@
                     <label for="tanggal_lelang"><b>tanggal</b></label>
                     <input type="date" name="tanggal_lelang" class="form-control" id="exampleInputEmail1"  value="{{ $showlelang->tanggal_lelang }}" disabled>
                         <br>
+                        @if (auth()->user()->level == 'petugas')
                         <div class="card-footer">
                     <a class="btn btn-primary" href="{{ route('lelang.index')}}">
                     <i class="fas fa-arrow-left"></i>  
                    Kembali
                 </a>
                   </div>  
+                  @endif
+                  @if (auth()->user()->level == 'masyarakat')
+                  <div class="card-footer">
+                    <a class="btn btn-primary" href="{{ route('listlelang.index')}}">
+                    <i class="fas fa-arrow-left"></i>  
+                   Kembali
+                </a>
+                  </div>  
+                  @endif
 </form>
 </body>
 </div>

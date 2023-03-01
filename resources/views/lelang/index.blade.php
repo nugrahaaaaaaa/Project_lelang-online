@@ -1,7 +1,7 @@
 @extends('templet.master')
 
 @section('title')
-Lelang terpercaya 
+Lelang Terpercaya 
 @endsection
 
 @section('content')
@@ -16,8 +16,7 @@ Lelang terpercaya
                   <tr>
                       <th>No</th>
                       <th>Nama barang</th>
-                      <th>Harga awal</th>
-                      <th>Harga lelang</th>
+                      <th>Open Bid</th>
                       <th>Tanggal lelang</th>
                       <th>Status</th>
                       <th>Action</th>
@@ -29,7 +28,6 @@ Lelang terpercaya
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ Str::of($lelang->barang->nama_barang)->title() }}</td>
                     <td>{{ $lelang->barang->harga_awal }}</td>
-                    <td>{{ $lelang->harga_akhir }}</td>
                     <td>{{ $lelang->tanggal_lelang }}</td>
                     <td>
                       <span class="badge {{ $lelang->status == 'ditutup' ? 'bg-danger' : 'bg-success' }}">{{ Str::title($lelang->status) }}</span>
@@ -40,6 +38,11 @@ Lelang terpercaya
               @if (auth()->user()->level == 'admin')
               <a class="btn btn-warning mr-3" href="lelang{{$lelang->id}}/edit/">Edit</a>
               @endif
+
+              @if (auth()->user()->level == 'petugas')
+              <a class="btn btn-warning mr-3" href="{{ route ('tawar', $lelang->id)}}">history</a>
+              @endif
+
               @csrf
               @method('DELETE')
               <input type="submit" class="btn btn-danger" value="Delete">

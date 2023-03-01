@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -74,7 +75,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         //
         $request->validate([
@@ -84,14 +85,14 @@ class UserController extends Controller
             'telepon' => 'required',
         ]);
 
-        $user = user::find($user->id);
+        $user = User::find($user->id);
         $user->name = $request->name;
         $user->username = $request->username;
         $user->level = $request->level;
         $user->telepon = $request->telepon;
         $user->update();
   
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->where('id', $user->id);
     }
 
     /**
@@ -100,8 +101,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( User $user)
     {
         //
+        $query = DB::table('users')->where('id',$user->id)->delete();
+        return redirect ('/user');
     }
 }

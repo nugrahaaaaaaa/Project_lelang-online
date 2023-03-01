@@ -1,5 +1,9 @@
 @extends('templet.master')
 
+@section('title')
+Lelang Terpercaya
+@endsection
+
 @section('content')
 <div class="card card-primary">
               <div class="card-header">

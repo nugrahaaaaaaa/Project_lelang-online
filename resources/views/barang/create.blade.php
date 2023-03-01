@@ -1,5 +1,9 @@
 @extends('templet.master')
 
+@section('title')
+Lelang Terpercaya
+@endsection
+
 @section('content')
 <div class="card">
     <div class="card-header bg-primary ">
@@ -17,10 +21,13 @@
                 <div class="form-group">
                 <label for="tanggal"><b>Tanggal</b></label>
                 <input type="date" name="tanggal" class="form-control" id="inputtanggal" placeholder="masukan tanggal">
+                </div>
+            </div>
                 <br>
                 <div class="form-group">
                 <label for="harga_awal"><b>Harga awal<b></label>
                 <input type="text" name="harga_awal" class="form-control" id="inputharga_awal" placeholder="masukan harga awal">
+
                 <br>
                 <form action="" method="POST" enctype="multipart/form/data">
                 <b>File Upload</b> <input type="file" name="image">
