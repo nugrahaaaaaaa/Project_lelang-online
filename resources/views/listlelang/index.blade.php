@@ -16,8 +16,7 @@ Lelang terpercaya
                   <tr>
                       <th>No</th>
                       <th>Nama Barang</th>
-                      <th>Harga Awal</th>
-                      <th>Harga akhir</th>
+                      <th>Open Harga</th>
                       <th>Tanggal Lelang</th>
                       <th>Status</th>
                       <th>Action</th>
@@ -29,7 +28,6 @@ Lelang terpercaya
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ Str::of($lelang->barang->nama_barang)->title() }}</td>
                     <td>{{ $lelang->barang->harga_awal }}</td>
-                    <td>{{ $lelang->harga_akhir }}</td>
                     <td>{{ $lelang->tanggal_lelang }}</td>
                     <td>
                       <span class="badge {{ $lelang->status == 'ditutup' ? 'bg-danger' : 'bg-success' }}">{{ Str::title($lelang->status) }}</span>

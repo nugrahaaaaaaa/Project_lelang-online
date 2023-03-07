@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Barang;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cetaklelang;
 
 class LelangController extends Controller
 {
@@ -19,15 +20,17 @@ class LelangController extends Controller
     {
         //
         $lelangs = Lelang::select('id', 'barangs_id', 'tanggal_lelang', 'harga_akhir', 'status')
-        ->where([
-            'status' => 'dibuka',
-            ])
         ->get();
         // dd(Auth::user()->id);
-        return view('lelang.index', compact('lelangs'));
-        
+        return view('lelang.index', compact('lelangs'));   
     }
-
+    public function cetaklelang()
+    {
+        //
+        $cetaklelangs = Lelang::all();
+        return view('lelang.cetaklelang', compact('cetaklelangs'));
+    }
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -42,9 +45,7 @@ class LelangController extends Controller
                             $query->select('barangs_id')->from('lelangs');
                         }
                     )->get();
-        return view('lelang.create', compact('barangs'));   
-
-        return view('lelang.create');
+        return view('lelang.create', compact('barangs'));
     }
 
     /**
@@ -60,7 +61,6 @@ class LelangController extends Controller
             [
                 'barangs_id'         => 'required|exists:barangs,id|unique:lelangs,barangs_id',
                 'tanggal_lelang'    => 'required|date',
-                'harga_akhir'       => 'required|numeric',
             ],
             [
                 'barang_id.required'        => 'Barang Harus Diisi',
@@ -78,7 +78,8 @@ class LelangController extends Controller
         $lelang = new Lelang;
         $lelang->barangs_id = $request->barangs_id;
         $lelang->tanggal_lelang = $request->tanggal_lelang;
-        $lelang->harga_akhir = $request->harga_akhir;
+        $lelang->harga_akhir = '0';
+        $lelang->pemenang = 'belum ada';
         $lelang->users_id = Auth::user()->id;
         $lelang->status = 'dibuka';
         $lelang->save();

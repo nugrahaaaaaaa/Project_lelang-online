@@ -16,10 +16,7 @@ class ListlelangController extends Controller
     public function index()
     {
         //
-        $listlelang = Listlelang::select('id', 'barangs_id', 'tanggal_lelang', 'harga_akhir', 'status')
-        ->where([
-            'status' => 'dibuka',
-            ])
+        $listlelang = Listlelang::select('id', 'barangs_id', 'tanggal_lelang', 'status')
         ->get();
 
         // dd(Auth::user()->id);

@@ -29,6 +29,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('user.create');
     }
 
     /**
@@ -40,6 +41,22 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $user = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'level' => 'required',
+            'telepon' => 'required',
+        ]);
+        User::create([
+            'name' => ($user['name']),
+            'username' => ($user['username']),
+            'password' => bcrypt($user['password']),
+            'level' => ($user['level']),
+            'telepon' => ($user['telepon']),        
+
+        ]);
+        return redirect()->route('user.index');
     }
 
     /**
@@ -52,7 +69,7 @@ class UserController extends Controller
     {
         //
         $user = User::find($user->id);
-        return view('user.index', compact('user'));
+        return view('user.show', compact('user'));
     }
 
     /**
@@ -78,21 +95,28 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
-        $request->validate([
+        $rules = $request->validate([
             'name' => 'required',
             'username' => 'required',
             'level' => 'required',
-            'telepon' => 'required',
+            'telepon' => 'required|max:15',
+
         ]);
 
-        $user = User::find($user->id);
-        $user->name = $request->name;
-        $user->username = $request->username;
-        $user->level = $request->level;
-        $user->telepon = $request->telepon;
-        $user->update();
-  
-        return redirect()->route('user.index')->where('id', $user->id);
+        if($request->name != $user->name) {
+            $rules['name'] = 'required|unique:users,name|min:3|max:50';
+        }
+        elseif($request->username != $user->username) {
+            $rules['name'] = 'required|unique:users,username|max:15';
+        }
+
+        $users = User::find($user->id);
+        $users->name = $request->name;
+        $users->username = $request->username;
+        $users->level = $request->level;
+        $users->telepon = $request->telepon;
+        $users->update(); 
+        return redirect()->route('user.index')->with('editsuccess','Data Akun Berhasil Diedit');
     }
 
     /**
@@ -104,7 +128,8 @@ class UserController extends Controller
     public function destroy( User $user)
     {
         //
-        $query = DB::table('users')->where('id',$user->id)->delete();
-        return redirect ('/user');
+        $users = User::find($user->id);
+        $users->delete();
+        return redirect()->route('user.index');
     }
 }

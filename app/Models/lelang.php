@@ -13,7 +13,7 @@ class lelang extends Model
     use HasFactory;
     protected $table = 'lelangs';
     protected $fillable = [
-        'barang_id',
+        'barangs_id',
         'users_id',
         'harga_awal',
         'harga_akhir',

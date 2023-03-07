@@ -15,17 +15,17 @@ Lelang Terpercaya
         <br>
         <div class="card-body">
             <div class="form-group">
-                <label for="nama_barang"><b>Nama barang</b></label>
+                <label for="nama_barang" class="form-label"><b>Nama barang</b></label>
                 <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="masukan nama barang">
                 <br>
                 <div class="form-group">
-                <label for="tanggal"><b>Tanggal</b></label>
+                <label for="tanggal" class="form-label"><b>Tanggal</b></label>
                 <input type="date" name="tanggal" class="form-control" id="inputtanggal" placeholder="masukan tanggal">
                 </div>
             </div>
                 <br>
                 <div class="form-group">
-                <label for="harga_awal"><b>Harga awal<b></label>
+                <label for="harga_awal" class="form-label"><b>Harga awal<b></label>
                 <input type="text" name="harga_awal" class="form-control" id="inputharga_awal" placeholder="masukan harga awal">
 
                 <br>
@@ -34,7 +34,7 @@ Lelang Terpercaya
                 </form>
                 <br>
                 <br>
-                <label for="deskripsi">Deskripsi</label>
+                <label for="deskripsi" class="form-label">Deskripsi</label>
                 <textarea name="deskripsi" class="form-control" id="inputdeskripsi" cols="40" rows="4"></textarea>
                 <br>
                 <a class="btn btn-primary" href="{{ route('barang.index') }}">

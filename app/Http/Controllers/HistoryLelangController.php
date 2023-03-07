@@ -58,6 +58,27 @@ class HistoryLelangController extends Controller
         return redirect()->route('tawar', $lelang->id);
     }
 
+    public function pilihPemenang(Lelang $lelang, $id)
+    {
+        //mengambil data sesuai id
+        $historylelang = HistoryLelang::findOrFail($id);
+
+        //mengubah status pada history menjadi "pemenang"
+        $historylelang->status = 'pemenang';
+        $historylelang->save();
+
+        //ambil data berdasarkan history lelang
+        $lelang =$historylelang->lelang;
+
+        //mengubah status lelang menjadi ditutup
+        $lelang->status = 'ditutup';
+        $lelang->pemenang = $historylelang->user->name;
+        $lelang->harga_akhir = $historylelang->harga;
+        $lelang->save();
+
+        return redirect()->route('lelang.index')->with('success', 'Data Berhasil Ditambahkan');
+    }
+
     /**
      * Display the specified resource.
      *

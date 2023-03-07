@@ -32,7 +32,7 @@ Lelang terpercaya
             <td>{{ $value->level }}</td>
             <td>{{ $value->telepon}}</td>
             <td> 
-            <form action="/user/{{$value->id}}" method="POST">
+            <form action="{{route ('user.destroy',[$value->id])}}" method="POST">
               @if (auth()->user()->level == 'admin')
               <a class="btn btn-info mr-3 text-white" href="user/{{$value->id}}">Detail</a>
               <a class="btn btn-warning mr-3" href="user/{{$value->id}}/edit/">Edit</a>

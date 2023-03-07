@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
               <div class="card-header bg-primary">
-                <h3 class="card-title bg-primary text-white">Detail Barang</h3>
+                <h3 class="card-title bg-primary text-white">Detail User</h3>
               </div>
               <div class="card-body">
             <form action="/user" method="POST">
@@ -11,25 +11,25 @@
                 <br>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="name"><b>Nama</b></label>
-                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->name }}" disabled>
+                    <label for="name" class="form-label"><b>Nama</b></label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{ $user->name }}" disabled>
                     <br>
                     <div class="form-group">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->username }}" disabled>
+                    <label for="username" class="form-label"><b>Username</b></label>
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" value="{{ $user->username }}" disabled>
                     <br>
                     <div class="form-group">
-                    <label for="level"><b>Level</b></label>
-                    <input type="text" name="level" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->level }}" disabled>
+                    <label for="level" class="form-label"><b>Level</b></label>
+                    <input type="text" name="level" class="form-control" id="exampleInputEmail1" value="{{ $user->level }}" disabled>
                     <br>
                     <div class="form-group">
-                    <label for="telepon"><b>Telepon</b></label>
-                    <input type="number" name="telepon" class="form-control" id="exampleInputEmail1"  value="{{ $showlistlelang->telepon }}" disabled>
+                    <label for="telepon" class="form-label"><b>Telepon</b></label>
+                    <input type="text" name="telepon" class="form-control" id="exampleInputEmail1"  value="{{ $user->telepon }}" disabled>
                         <br>
                         <div class="card-footer">
                     <a class="btn btn-primary" href="{{ route('user.index')}}">
                     <i class="fas fa-arrow-left"></i>  
-                   Back
+                   Kembali
                 </a>
                   </div>  
 </form>

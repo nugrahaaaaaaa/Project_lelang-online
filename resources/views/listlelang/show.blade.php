@@ -18,14 +18,9 @@
                     <label for="harga_awal"><b>Harga awal </b></label>
                     <input type="date" name="harga_awal" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->harga_awal }}" disabled>
                     <br>
-                    <div class="form-group">
-                    <label for="harga_akhir"><b>Harga akhir</b></label>
-                    <input type="number" name="harga_akhir" class="form-control" id="exampleInputEmail1" value="{{ $showlistlelang->harga_akhir }}" disabled>
-                    <br>
                     @if ($showlistlelang->image)
               <img src="{{ asset('storage/' . $showlistlelang->image)}}" alt="" width="500">
               @endif
-              <br>
               <br>
                     <div class="form-group">
                     <label for="tanggal"><b>tanggal</b></label>

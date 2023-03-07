@@ -20,6 +20,7 @@ class CreateLelangsTable extends Migration
             $table->date('tanggal_lelang');
             $table->string('harga_akhir');
             $table->string('image')->nullable();
+            $table->string('pemenang');
             $table->enum('status',['dibuka','ditutup']);
             $table->timestamps();
         });

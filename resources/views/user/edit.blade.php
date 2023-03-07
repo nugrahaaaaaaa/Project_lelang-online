@@ -15,28 +15,29 @@ Lelang Terpercaya
     @method('PUT')
     <div class="card-body">
      <div class="form-group">
-        <label for="name"><b>Name</b></label>
+        <label for="name" class="form-label"><b>Name</b></label>
         <input type="text" name="name" class="form-control" value="{{ $user->name }}">
 </br>
-        <label for="username"><b>username</b></label>
+        <label for="username" class="form-label"><b>username</b></label>
         <input type="text" name="username" class="form-control" value="{{ $user->username }}">
 </br>
-        <!-- <label for="level"><b>level</b></label>
-        <input type="text" name="level" class="form-control" value="{{ $user->level }}"> -->
-                          <div class="col-12">
+        <label for="level" class="form-label"><b>level</b></label>
+        <input type="text" name="level" class="form-control" value="{{ $user->level }}">
+                          <!-- <div class="col-12">
                             <div class="form-group mandatory">
                               <label for="level" placeholder="level" class="form-label"><b>level</b></label>
                               <select class="form-select form-control @error('level') is-invalid @enderror" id="level" name="level" data-parsley-required="true">
                                 <option value="" disabled>Pilih level</option>
+                                <option value="">masyarakat</option>
                                 <option value="">admin</option>
                                 <option value="">petugas</option>
-                              </select>
-                            </div> 
+                              </select> -->
+                            <!-- </div> 
                             @error('level')
                               <div class="aler alert-danger" role="alert">{{ $message }}</div>
                             @enderror
                            </div>
-                        </div>
+                        </div> -->
                       <br>
                     <a class="btn btn-primary" href="{{ route('user.index')}}">
                     <i class="fas fa-arrow-left"></i>  

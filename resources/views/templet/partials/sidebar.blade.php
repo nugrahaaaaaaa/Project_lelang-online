@@ -45,6 +45,12 @@
               <i class="bi bi-circle"></i><span>Data User</span>
             </a>
           </li>
+          <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/user/create">
+              <i class="bi bi-circle"></i><span>Tambah Data User</span>
+            </a>
+          </li>
     @endif
 
     @if (auth()->user()->level == 'petugas')

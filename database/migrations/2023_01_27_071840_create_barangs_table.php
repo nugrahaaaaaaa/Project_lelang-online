@@ -15,9 +15,11 @@ class CreateBarangsTable extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('users_id');
+            // $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('nama_barang');
             $table->date('tanggal');
-            $table->string('harga_awal');
+            $table->BigInteger('harga_awal');
             $table->string('image')->nullable();
             $table->string('deskripsi',100);
             $table->timestamps();

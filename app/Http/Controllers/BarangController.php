@@ -145,7 +145,9 @@ class BarangController extends Controller
     public function destroy(barang $barang)
     {
         //
-        $query = DB::table('barangs')->where('id',$barang->id)->delete();
-        return redirect('/barang');
+        // $query = DB::table('barangs')->where('id',$barang->id)->delete();
+        $barang = Barang::find($barang->id);
+        $barang->delete();
+        return redirect()->route('barang.index');
     }
 }

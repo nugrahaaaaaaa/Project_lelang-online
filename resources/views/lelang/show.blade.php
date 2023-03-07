@@ -15,23 +15,24 @@ Lelang Terpercaya
                 <br>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="nama_barang"><b>Nama Barang<b></label>
+                    <label for="nama_barang" class="form-label"><b>Nama Barang<b></label>
                     <input type="text" name="nama_barang" class="form-control" id="exampleInputEmail1" value="{{ $showlelang->barang->nama_barang }}" disabled>
                     <br>
                     <div class="form-group">
-                    <label for="harga_awal"><b>Harga Awal</b></label>
+                    <label for="harga_awal" class="form-label"><b>Harga Awal</b></label>
                     <input type="text" name="harga_awal" class="form-control" id="exampleInputEmail1" value="{{ $showlelang->barang->harga_awal}}" disabled>
                     <br>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                     <label for="harga_akhir"><b>Harga akhir</b></label>
                     <input type="text" name="harga_akhir" class="form-control" id="exampleInputEmail1" value="{{ $showlelang->harga_akhir }}" disabled>
-                    <br>
+                    <br> -->
                     @if ($showlelang->barang->image)
               <img src="{{ asset('storage/' . $showlelang->barang->image)}}" alt="" width="500">
               @endif
               <br>
+              <br>
                     <div class="form-group">
-                    <label for="tanggal_lelang"><b>tanggal</b></label>
+                    <label for="tanggal_lelang" class="form-label"><b>tanggal</b></label>
                     <input type="date" name="tanggal_lelang" class="form-control" id="exampleInputEmail1"  value="{{ $showlelang->tanggal_lelang }}" disabled>
                         <br>
                         @if (auth()->user()->level == 'petugas')
