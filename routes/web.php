@@ -44,6 +44,9 @@ route::get('logout',[LogoutController::class,'logout'])->name('logout-petugas');
 //laman eror
 Route::view('error/403', 'error.403')->name('error.403');
 
+//profil
+route::get('/profil',[Dashboard::class, 'profil'])->name('dashboard.profil');
+
 //admin
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
 route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');

@@ -21,4 +21,8 @@ class Dashboard extends Controller
     {
         return view('dashboard.masyarakat');
     }
+    public function profil()
+    {
+        return view('dashboard.profil');
+    }
 }

@@ -30,7 +30,7 @@ class loginController extends Controller
         }else if ($user->level == 'petugas'){
             return redirect()->route('dashboard.petugas');
         }else {
-            return redirect()->route('login');
+            return redirect()->route('dashboard.masyarakat');
         }
         return back()->withErrors([
             'username'=>'The provided credential do not match our records.',
