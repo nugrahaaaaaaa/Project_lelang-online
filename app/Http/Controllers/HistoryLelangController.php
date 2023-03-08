@@ -20,9 +20,9 @@ class HistoryLelangController extends Controller
     }
     public function cetakLaporan()
     {
-        $historylelang = HistoryLelang::all();
+        $historylelang = HistoryLelang::all()
+        ->where('status','pemenang');
         return view('lelang.cetaklelang', compact('historylelang'));
-
     }
 
     /**
