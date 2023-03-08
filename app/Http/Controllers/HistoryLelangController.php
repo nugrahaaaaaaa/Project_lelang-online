@@ -16,7 +16,7 @@ class HistoryLelangController extends Controller
      */
     public function index()
     {
-        //
+        //ini cetak laporan 
     }
     public function cetakLaporan()
     {
