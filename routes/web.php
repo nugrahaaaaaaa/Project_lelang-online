@@ -27,17 +27,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-//register
-Route::get('register', [RegisterController::class, 'view'])->name('register')->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
-
-route::resource('barang',BarangController::class);
-route::resource('lelang',LelangController::class);
-
-//login
-route::get('login',[LoginController::class, 'view'])->name('login')->middleware('guest');
-route::post('login', [LoginController::class,'proses'])->name('login.proses')->middleware('guest');
-
 //logout
 route::get('logout',[LogoutController::class,'logout'])->name('logout-petugas');
 
@@ -50,6 +39,20 @@ route::get('/profil',[Dashboard::class, 'profil'])->name('dashboard.profil');
 //data penawaran
 route::get('/data-penawaran', [HistoryLelangController::class,'datapenawaran'])->name('data-penawaran')->middleware('auth', 'level:admin,petugas,admin');
 
+//generate pdf
+route::get('generate-pdf', [ReportController::class, 'generatePdf'])->name('masyarakat.penawaran');
+
+//login
+route::get('login',[LoginController::class, 'view'])->name('login')->middleware('guest');
+route::post('login', [LoginController::class,'proses'])->name('login.proses')->middleware('guest');
+
+route::resource('barang',BarangController::class);
+route::resource('lelang',LelangController::class);
+
+//register
+Route::get('register', [RegisterController::class, 'view'])->name('register')->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+
 //admin
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
 route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');
@@ -60,12 +63,8 @@ route::post('/user/create',[UserController::class,  'store'])->name('user.store'
 route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');
 route::get('/lelang/create',[LelangController::class,'create'])->name('lelang.create')->middleware('auth','level:petugas');
 route::post('/lelang', [LelangController::class, 'store'])->name('lelang.store')->middleware('auth', 'level:petugas');
-// route::get('/cetak-lelang', [HistoryLelangController::class,'cetakLaporan'])->name('lelang.cetaklelang')->middleware('auth', 'level:admin,petugas');
 route::put('/menang/{id}/pemenang',[HistoryLelangController::class, 'pilihPemenang'])->name('pemenang.lelang');
 route::put('cetak-lelang/{id}',[HistoryLelangController::class, 'cetakLaporan'])->name('lelang.cetaklelang')->middleware('auth', 'level:admin,petugas');
-
-//generate pdf
-route::get('generate-pdf', [ReportController::class, 'generatePdf'])->name('masyarakat.penawaran');
 
 //masyarakat
 route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashboard.masyarakat')->middleware('auth','level:masyarakat');
