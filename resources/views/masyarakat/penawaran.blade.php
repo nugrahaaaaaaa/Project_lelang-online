@@ -83,7 +83,7 @@
           <tr> 
             <th>No</th>
             <th>Nama Pelelang</th>
-            <th>Nama barang</th>
+            <th>Nama barang</th>  
             <th>Tanggal</th>
             <th>Nominal Bid</th>
             <th>Status</th>
@@ -137,7 +137,4 @@
             </div>
           </div>
         </div>
-
-
-
 @endsection

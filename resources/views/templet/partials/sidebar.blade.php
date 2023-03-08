@@ -32,7 +32,7 @@
   @if (auth()->user()->level == 'admin')
   <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#components-nav"  href="#">
-      <i class="bi bi-menu-button-wide"></i><span>Barang</span><i></i>
+      <i class="bi bi-box-seam"></i><span>Barang</span><i></i>
     </a>
     <ul id="components-nav" data-bs-parent="#sidebar-nav">
       <li>
@@ -64,12 +64,23 @@
             </a>
           </li>
           </ul>
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" href="#">
+              <i class="ri-admin-line"></i><span>Data Penawaran</span><i ></i>
+            </a>
+            <ul id="forms-nav"  data-bs-parent="#sidebar-nav">
+              <li>
+                <a class="nav-link collapsed" data-bs-target="#forms-nav" href="/data-penawaran">
+                  <i class="bi bi-circle"></i><span>Cetak Data Penawaran</span>
+                </a>
+              </li>
+              <li>
     @endif
 
     @if (auth()->user()->level == 'petugas')
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav"  href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Barang</span><i></i>
+          <i class="bi bi-box-seam"></i><span>Barang</span><i></i>
         </a>
         <ul id="components-nav"  data-bs-parent="#sidebar-nav">
           <li>
@@ -82,7 +93,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" href="#">
-          <i class="bi bi-journal-text"></i><span>Lelang</span><i ></i>
+          <i class="ri-auction-fill"></i><span>Lelang</span><i ></i>
         </a>
         <ul id="forms-nav"  data-bs-parent="#sidebar-nav">
           <li>
@@ -97,6 +108,17 @@
           </li>
         </ul>
       </li><!-- End Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" href="#">
+          <i class="ri-admin-line"></i><span>Data Penawaran</span><i ></i>
+        </a>
+        <ul id="forms-nav"  data-bs-parent="#sidebar-nav">
+          <li>
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" href="/data-penawaran">
+              <i class="bi bi-circle"></i><span>Cetak Data Penawaran</span>
+            </a>
+          </li>
+          <li>
       @endif
 
       @if (auth()->user()->level == 'masyarakat')

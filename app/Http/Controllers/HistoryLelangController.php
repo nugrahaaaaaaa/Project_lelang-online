@@ -18,6 +18,12 @@ class HistoryLelangController extends Controller
     {
         //
     }
+    public function cetakLaporan()
+    {
+        $historylelang = HistoryLelang::all();
+        return view('lelang.cetaklelang', compact('historylelang'));
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -85,9 +91,11 @@ class HistoryLelangController extends Controller
      * @param  \App\Models\HistoryLelang  $historyLelang
      * @return \Illuminate\Http\Response
      */
-    public function show(HistoryLelang $historyLelang)
+    public function datapenawaran(HistoryLelang $historyLelang)
     {
         //
+        $historylelangs = HistoryLelang::all();
+        return view('masyarakat.data-penawaran', compact('historylelangs'));
     }
 
     /**

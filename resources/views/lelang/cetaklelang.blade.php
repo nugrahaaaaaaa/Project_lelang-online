@@ -18,13 +18,13 @@
             <th>Pemenang</th>
             <th>Status</th>
         </tr>
-        @foreach ($cetaklelangs as $item)
+        @foreach ($historylelang as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $item->barang->nama_barang }}</td>
-            <td>{{ $item->barang->harga_awal}}</td>
-            <td>{{ $item->harga_akhir}}</td>
-            <td>{{ $item->pemenang }}</td>
+            <td>{{ $item->lelang->barang->nama_barang }}</td>
+            <td>{{ $item->lelang->barang->harga_awal}}</td>
+            <td>{{ $item->lelang->harga_akhir}}</td>
+            <td>{{ $item->lelang->pemenang }}</td>
             <td>{{ $item->status }}</td>
         </tr>
         @endforeach

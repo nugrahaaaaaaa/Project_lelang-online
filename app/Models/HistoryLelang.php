@@ -10,6 +10,8 @@ class HistoryLelang extends Model
     use HasFactory;
     protected $table = 'history_lelangs';
     protected $fillable = [
+        'name',
+        'nama_barang',
         'lelang_id',
         'masyarakat_id',
         'petugas_id',

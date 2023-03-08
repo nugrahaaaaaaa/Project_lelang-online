@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lelang;
+use App\Models\HistoryLelang;
 
 class Dashboard extends Controller
 {
@@ -17,9 +19,10 @@ class Dashboard extends Controller
         return view('dashboard.petugas');
     }
 
-    public function masyarakat()
+    public function masyarakat(Lelang $lelang)
     {
-        return view('dashboard.masyarakat');
+        $lelangs = Lelang::all();
+        return view('dashboard.masyarakat', compact('lelangs'));
     }
     public function profil()
     {
