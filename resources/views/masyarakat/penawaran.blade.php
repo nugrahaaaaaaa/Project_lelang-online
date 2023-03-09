@@ -113,7 +113,12 @@
            <form action="{{ route ('pemenang.lelang', $value->id)}}" method="POST">
             @csrf
             @method('PUT')
-            <button type="submit" class="btn btn-info me-1 mb-1 text-white">{{ __('winner') }} </button>
+            @if($value->status == 'pending')
+            <button type="submit" class="btn btn-success me-1 mb-1 text-white">{{ __('Pilih Pemenang') }} </button>
+            @else
+
+            @endif
+
             </form>
               </td>
               @endif

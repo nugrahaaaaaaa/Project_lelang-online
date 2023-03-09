@@ -1,13 +1,13 @@
 @extends('templet.master')
 
 @section('title')
-Lelang Terpercaya
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')
 <div class="card">
     <div class="card-header bg-primary ">
-        <h3 class="card-title bg-primary text-white">Membuat Data Baru</h3>
+        <h3 class="card-title bg-primary text-white">Tambah Barang yang akan di Lelang</h3>
     </div>
     <form action="/barang" method="POST" enctype="multipart/form-data">
         @csrf

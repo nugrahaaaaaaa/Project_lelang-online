@@ -1,14 +1,14 @@
 @extends('templet.master')
 
 @section('title')
-Data Penawaran
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')
 <div class="col-12 col-md-20">
     <div class="card">
     <div class="card-header bg-primary">
-        <h3 class="card-title text-white">Download dan cetak</h3>
+        <h3 class="card-title text-white">Data Penawaran & Cetak Laporan</h3>
     </div>
     <div class="card-header">
     <div class="card-body">
@@ -42,7 +42,11 @@ Data Penawaran
            <form action="{{ route ('lelang.cetaklelang', $value->id)}}" method="POST">
             @csrf
             @method('PUT')
+            @if($value->status =='pemenang')
             <button type="submit" class="btn btn-success me-1 mb-1 text-white">{{ __('Cetak Laporan') }} </button>
+            @else
+
+            @endif
             </form>
               </td>
             </tr>

@@ -1,7 +1,7 @@
 @extends('templet.master')
 
 @section('title')
-Lelang Terpercaya
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')
@@ -17,10 +17,10 @@ Lelang Terpercaya
      <div class="form-group">
         <label for="nama_barang">Nama Barang</label>
         <input type="text" name="nama_barang" class="form-control" value="{{ $barangs->nama_barang }}">
-</br>
+        <br>
         <label for="tanggal">Tanggal</label>
         <input type="date" name="tanggal" class="form-control" value="{{ $barangs->tanggal }}">
-</br>
+        <br>
         <label for="harga_awal">Harga awal</label>
         <input type="text" name="harga_awal" class="form-control" value="{{ $barangs->harga_awal }}">
         <br>
@@ -32,7 +32,7 @@ Lelang Terpercaya
         <label for="deskripsi">deskripsi</label>
         <textarea name="deskripsi" class="form-control" id="inputdeskripsi" cols="50" rows="4">{{ $barangs->deskripsi }}</textarea>
         <br>
-                    <a class="btn btn-primary" href="{{ route('barang.index')}}">
+                    <a class="btn btn-primary" href="/barang/{barang}/edit">
                     <i class="fas fa-arrow-left"></i>  
                    Kembali
                 </a>

@@ -1,7 +1,7 @@
 @extends('templet.master')
 
 @section('title')
-Lelang Terpercaya
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@ Lelang Terpercaya
       <div class="col-12">
           <div class="card">
               <div class="card-header bg-primary text-white">
-                  <h4 class="card-title text-white">{{ __('Tambah Barang Yang Akan Di Lelang') }}</h4>
+                  <h4 class="card-title text-white">{{ __('Tambah Lelang Terbaru') }}</h4>
               </div>
               <div class="card-content">
                   <div class="card-body">

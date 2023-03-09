@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="form-group">
-        <p align="center">Laporan lelang</p>
+        <p align="center"><h1 align="center">Laporan lelang</h1></p>
         <table class="static" align="center" rules="all" border="1px" style="width: 95%">
         <tr>
             <th>No</th>

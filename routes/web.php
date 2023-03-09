@@ -56,8 +56,12 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 //admin
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
 route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');
+route::get('/barang/{barang}/edit',[BarangController::class, 'edit'])->name('barang.edit')->middleware('auth', 'level:admin');
+route::put('/barang/{barang}', [BarangController::class, 'update'])->name('barang.update')->middleware('auth', 'level:admin');
 route::get('user/create',[UserController::class,'create'])->name('user.create')->middleware('auth','level:admin');
 route::post('/user/create',[UserController::class,  'store'])->name('user.store')->middleware('auth','level:admin');
+route::get('/user/{user}/edit',[UserController::class, 'edit'])->name('user.edit')->middleware('auth', 'level:admin');
+route::put('user/{user}', [UserController::class, 'update'])->name('user.update')->middleware('auth', 'level:admin');
 
 //petugas
 route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');

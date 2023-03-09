@@ -1,7 +1,7 @@
 @extends('templet.master')
 
 @section('title')
-Lelang terpercaya 
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')

@@ -17,12 +17,15 @@ Lelang Terpercaya
      <div class="form-group">
         <label for="name" class="form-label"><b>Name</b></label>
         <input type="text" name="name" class="form-control" value="{{ $user->name }}">
-</br>
+        <br>
         <label for="username" class="form-label"><b>username</b></label>
         <input type="text" name="username" class="form-control" value="{{ $user->username }}">
-</br>
+        <br>
         <label for="level" class="form-label"><b>level</b></label>
         <input type="text" name="level" class="form-control" value="{{ $user->level }}">
+        <br>
+        <label for="telepon" class="form-label"><b>telepon</b></label>
+        <input type="number" name="telepon" class="form-control" value="{{ $user->telepon }}">
                           <!-- <div class="col-12">
                             <div class="form-group mandatory">
                               <label for="level" placeholder="level" class="form-label"><b>level</b></label>
@@ -39,7 +42,7 @@ Lelang Terpercaya
                            </div>
                         </div> -->
                       <br>
-                    <a class="btn btn-primary" href="{{ route('user.index')}}">
+                    <a class="btn btn-primary" href="/user/{user}/edit">
                     <i class="fas fa-arrow-left"></i>  
                    Back
                 </a>

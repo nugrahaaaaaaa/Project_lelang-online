@@ -1,13 +1,13 @@
 @extends('templet.master')
 
 @section('title')
-Lelang Terpercaya 
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')
   <div class="card">
       <div class="card-header bg-primary">
-       <h5 class="card-title text-white">Masukan Lelang Terbaru</h5>
+       <h5 class="card-title text-white">Data Lelang Terbaru</h5>
       </div>
       <div class="card-header">
       <div class="card-body">
