@@ -16,7 +16,7 @@ class HistoryLelangController extends Controller
      */
     public function index()
     {
-        //ini cetak laporan 
+        //
     }
     public function cetakLaporan()
     {
@@ -72,6 +72,11 @@ class HistoryLelangController extends Controller
         //mengubah status pada history menjadi "pemenang"
         $historylelang->status = 'pemenang';
         $historylelang->save();
+
+        HistoryLelang::where('lelang_id', $historylelang->lelang_id)
+        ->where('status', 'pending')
+        ->where('id', '<>', $historylelang->id)
+        ->update(['status' => 'gugur']);
 
         //ambil data berdasarkan history lelang
         $lelang =$historylelang->lelang;

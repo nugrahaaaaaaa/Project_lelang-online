@@ -35,7 +35,7 @@ Lelang Terpercaya Lelangkeun aja!
             <td>{{ $value->lelang->tanggal_lelang}}</td>
             <td>{{ $value->harga}}</td>
             <td>
-                <span class="badge {{ $value->status == 'ditutup' ? 'bg-danger' : 'bg-warning' }}">{{ Str::title($value->status) }}</span>
+              <span class="badge {{ $value->status =='pending' ? 'bg-warning' : ($value->status == 'gugur' ? 'bg-danger' : 'bg-success') }}">{{ Str::title($value->status) }}</span>
            </td>
           </form>
            <td>

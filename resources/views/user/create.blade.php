@@ -1,7 +1,7 @@
 @extends('templet.master')
 
 @section('title')
-Lelang Terpercaya
+Lelang Terpercaya Lelangkeun aja!
 @endsection
 
 @section('content')
@@ -12,9 +12,9 @@ Lelang Terpercaya
     <form action="{{route ('user.store')}}" method="POST">
         @csrf
         <div class="card">
-        <br>
-        <div class="card-body">
-            <div class="form-group">
+            <br>
+            <div class="card-body">
+                <div class="form-group">
                 <label for="name" class="form-label"><b>Nama</b></label>
                 <input type="text" name="name" class="form-control" placeholder="masukan nama" >
                 <br>
@@ -50,4 +50,5 @@ Lelang Terpercaya
     </form>
     </div>
 </div>
+
 @endsection

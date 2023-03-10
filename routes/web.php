@@ -56,14 +56,17 @@ Route::post('register', [RegisterController::class, 'store'])->name('register.st
 //admin
 route::get('/dashboard/admin',[Dashboard::class,'admin'])->name('dashboard.admin')->middleware('auth', 'level:admin,petugas');
 route::get('/barang/create',[BarangController::class,'create'])->name('barang.create')->middleware('auth','level:admin');
+
 route::get('/barang/{barang}/edit',[BarangController::class, 'edit'])->name('barang.edit')->middleware('auth', 'level:admin');
 route::put('/barang/{barang}', [BarangController::class, 'update'])->name('barang.update')->middleware('auth', 'level:admin');
+
 route::get('user/create',[UserController::class,'create'])->name('user.create')->middleware('auth','level:admin');
 route::post('/user/create',[UserController::class,  'store'])->name('user.store')->middleware('auth','level:admin');
 route::get('/user/{user}/edit',[UserController::class, 'edit'])->name('user.edit')->middleware('auth', 'level:admin');
 route::put('user/{user}', [UserController::class, 'update'])->name('user.update')->middleware('auth', 'level:admin');
+route::delete('barang/{barang}', [BarangController::class, 'destroy'])->name('barang.destroy');
 
-//petugas
+//petugas 
 route::get('/dashboard/petugas',[Dashboard::class,'petugas'])->name('dashboard.petugas')->middleware('auth','level:petugas');
 route::get('/lelang/create',[LelangController::class,'create'])->name('lelang.create')->middleware('auth','level:petugas');
 route::post('/lelang', [LelangController::class, 'store'])->name('lelang.store')->middleware('auth', 'level:petugas');
@@ -73,8 +76,9 @@ route::put('cetak-lelang/{id}',[HistoryLelangController::class, 'cetakLaporan'])
 //masyarakat
 route::get('/dashboard/masyarakat',[Dashboard::class,'masyarakat'])->name('dashboard.masyarakat')->middleware('auth','level:masyarakat');
 route::get('/listlelang',[ListlelangController::class,'index'])->name('listlelang.index')->middleware('auth','level:masyarakat');
-route::get('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'create'])->name('tawar');
-route::post('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'store'])->name('tawar.store');
+route::get('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'create'])->name('tawar')->middleware('auth', 'level:admin,petugas,masyarakat');
+route::post('lelangs/{lelang}/penawaran', [HistoryLelangController::class, 'store'])->name('tawar.store')->middleware('auth', 'level:admin,petugas,masyarakat');
+// route::get('/listlelangs', [HistoryLelangController::class, 'index'])->name('')
 route::get('/user',[UserController::class, 'index'])->name('user.index')->middleware('auth', 'level:admin');
 route::get('user/{user}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('auth', 'level:admin');
 route::put('user/{user}',[UserController::class, 'update'])->name('user.update')->middleware('auth', 'level:admin');

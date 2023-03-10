@@ -45,7 +45,7 @@ Lelang Terpercaya Lelangkeun aja!
               @csrf
             </form>
             </td>
-          </tr>
+          </tr>       
           @endforeach
 
               </tbody>

@@ -101,38 +101,30 @@ class BarangController extends Controller
     public function update(Request $request, barang $barang)
     {
         //
-        $request->validate([
+        $rules = [
             'nama_barang' => 'required',
             'tanggal' => 'required',
             'harga_awal' => 'required',
             'image' => 'image|file',
             'deskripsi' => 'required',
            
-        ]);
+        ];
 
-        $barang = barang::find($barang->id);
-        $barang->nama_barang = $request->nama_barang;
-        $barang->tanggal = $request->tanggal;
-        $barang->harga_awal = $request->Harga_awal;
-        $barang->image = $request->image;
-        $barang->deskripsi = $request->deskripsi;
-        $barang->update();
+        $validateData = $request->validate($rules);
+    if ($request->file('image')) {
+        $validateData['image'] = $request->file('image')->store('post-images');
+    }
+        // $barang = barang::find($barang->id);
+        // $barang->nama_barang = $request->nama_barang;
+        // $barang->tanggal = $request->tanggal;
+        // $barang->harga_awal = $request->Harga_awal;
+        // $barang->image = $request->image;
+        // $barang->deskripsi = $request->deskripsi;
+        // $barang->update();
 
-        // Barang::where('id', $barang->id)
-        // ->update([
-        //     'nama_barang' => Str::lower($request->nama_barang),
-        //     'tanggal' => $request->tanggal,
-        //     'image' => $request->image,
-        //     'harga_awal' => $request->harga_awal,
-        //     'deskripsi' => Str::lower($request->deskripsi),
-        // ]);
-
-        if($request->file('image')){
-            $permintaan['image'] - $request->file('image')->store('post-images');
-        }
-        barang::create($permintaan);
-
-        return redirect ('/barang');
+        Barang::where('id', $barang->id)
+                ->update($validateData);
+        return redirect()->route('barang.index')->with('editsuccess', 'Data Barang Berhasil Diedit');
 
     }
 
